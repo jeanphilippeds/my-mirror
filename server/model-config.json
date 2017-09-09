@@ -15,7 +15,7 @@
     ]
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "memory",
     "public": true
   },
   "AccessToken": {
