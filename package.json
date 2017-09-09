@@ -2,6 +2,10 @@
   "name": "myMirror",
   "version": "1.0.0",
   "main": "server/server.js",
+  "engines": {
+    "node": "6.9.5",
+    "npm": "3.10.10"
+  },
   "scripts": {
     "lint": "eslint .",
     "test:backend": "NODE_ENV=test istanbul cover mocha -- tests/**/*.js -R spec",
