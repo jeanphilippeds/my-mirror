@@ -1,0 +1,12 @@
+{
+  "home": {
+    "use-a-link": "Or use a link",
+    "get-started": "To get started, edit",
+    "save-to-reload": "and save to reload.",
+    "click-me": "Click me"
+  },
+  "page": {
+    "back": "Back",
+    "api-to-translate-example": "This message is translated using directly react-intl API"
+  }
+}

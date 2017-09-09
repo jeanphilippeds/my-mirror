@@ -1,0 +1,18 @@
+---
+
+# List of databases to be created
+postgresql_databases:
+  - name: myMirror
+    hstore: yes
+    uuid_ossp: yes
+
+# List of users to be created
+postgresql_users:
+  - name: myMirror
+    pass: myMirror
+
+postgresql_user_privileges:
+  - name: myMirror
+    db: myMirror
+    priv: "ALL"
+    role_attr_flags: "SUPERUSER"

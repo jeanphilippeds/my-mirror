@@ -1,0 +1,9 @@
+apps:
+  name       : myMirror
+  watch      : false
+  script     : ./server/server.js
+  instances  : max
+  exec_mode  : cluster
+  error_file : ./logs/myMirror.err.log
+  out_file   : ./logs/myMirror.out.log
+  combine_logs: true

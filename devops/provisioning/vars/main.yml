@@ -1,0 +1,10 @@
+---
+#PUT here your main variable
+timezone: Europe/Paris
+project_name: myMirror
+client_public_file_directory: client/build
+port: 80
+apt_install:
+  - git
+
+postgresql_version: 9.6
