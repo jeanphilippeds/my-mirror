@@ -5,11 +5,7 @@ import axios from 'axios';
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      lamarck: [],
-      guymoquet: [],
-      carpeaux: []
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -31,7 +27,20 @@ export default class Home extends Component {
           const carpeaux = JSON.stringify(res.data.available_bikes);
           this.setState({ carpeaux });
         });
-    }, 10000);
+        axios.get(`http://www.prevision-meteo.ch/services/json/paris`)
+        .then(res => {
+          const temp = JSON.stringify(res.data.current_condition.tmp);
+          const humidity = JSON.stringify(res.data.current_condition.humidity);
+          const condition = JSON.stringify(res.data.current_condition.condition);
+          const tmin = JSON.stringify(res.data.fcst_day_0.tmin);
+          const tmax = JSON.stringify(res.data.fcst_day_0.tmax);
+          this.setState({ temp });
+          this.setState({ humidity });
+          this.setState({ condition });
+          this.setState({ tmin });
+          this.setState({ tmax });
+        });
+    }, 1000);
   }
 
   render() {
@@ -39,16 +48,22 @@ export default class Home extends Component {
       <div>
         <p className="intro"/>
         <p>
-          Vélos dispos [Lamarck]:
-          {this.state.lamarck}
+          Vélos dispos [Lamarck]: {this.state.lamarck}
         </p>
         <p>
-          Vélos dispos [Guy-Moquet]:
-          {this.state.guymoquet}
+          Vélos dispos [Guy-Moquet]: {this.state.guymoquet}
         </p>
         <p>
-          Vélos dispos [Carpeaux]:
-          {this.state.carpeaux}
+          Vélos dispos [Carpeaux]: {this.state.carpeaux}
+        </p>
+        <p>
+          Température: {this.state.temp}°C [{this.state.tmin}°C - {this.state.tmax}°C]
+        </p>
+        <p>
+          Humidité: {this.state.humidity}%
+        </p>
+        <p>
+          Condition:{this.state.condition}
         </p>
       </div>
     );
