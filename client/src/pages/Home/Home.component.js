@@ -13,23 +13,25 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://api.jcdecaux.com/vls/v1/stations/18047?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
-    .then(res => {
-      const lamarck = JSON.stringify(res.data.available_bikes);
-      this.setState({ lamarck });
-    });
+    setInterval( () => {
+        axios.get(`https://api.jcdecaux.com/vls/v1/stations/18047?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
+        .then(res => {
+          const lamarck = JSON.stringify(res.data.available_bikes);
+          this.setState({ lamarck });
+        });
 
-    axios.get(`https://api.jcdecaux.com/vls/v1/stations/17001?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
-    .then(res => {
-      const guymoquet = JSON.stringify(res.data.available_bikes);
-      this.setState({ guymoquet });
-    });
+        axios.get(`https://api.jcdecaux.com/vls/v1/stations/17001?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
+        .then(res => {
+          const guymoquet = JSON.stringify(res.data.available_bikes);
+          this.setState({ guymoquet });
+        });
 
-    axios.get(`https://api.jcdecaux.com/vls/v1/stations/18018?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
-    .then(res => {
-      const carpeaux = JSON.stringify(res.data.available_bikes);
-      this.setState({ carpeaux });
-    });
+        axios.get(`https://api.jcdecaux.com/vls/v1/stations/18018?contract=Paris&apiKey=59e904bbe66668002da4aa7a2c93819cf98ca568`)
+        .then(res => {
+          const carpeaux = JSON.stringify(res.data.available_bikes);
+          this.setState({ carpeaux });
+        });
+    }, 10000);
   }
 
   render() {
