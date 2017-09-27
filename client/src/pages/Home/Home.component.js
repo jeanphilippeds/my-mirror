@@ -27,13 +27,13 @@ export default class Home extends Component {
           const carpeaux = JSON.stringify(res.data.available_bikes);
           this.setState({ carpeaux });
         });
-        axios.get(`http://www.prevision-meteo.ch/services/json/paris`)
+        axios.get(`https://api.apixu.com/v1/forecast.json?key=ba1b04fe8161474cb84173657172609&q=Paris`)
         .then(res => {
-          const temp = JSON.stringify(res.data.current_condition.tmp);
-          const humidity = JSON.stringify(res.data.current_condition.humidity);
-          const condition = JSON.stringify(res.data.current_condition.condition);
-          const tmin = JSON.stringify(res.data.fcst_day_0.tmin);
-          const tmax = JSON.stringify(res.data.fcst_day_0.tmax);
+          const temp = JSON.stringify(res.data.current.temp_c);
+          const humidity = JSON.stringify(res.data.current.humidity);
+          const condition = JSON.stringify(res.data.current.condition.text);
+          const tmin = JSON.stringify(res.data.forecast.forecastday[0].day.mintemp_c);
+          const tmax = JSON.stringify(res.data.forecast.forecastday[0].day.maxtemp_c);
           this.setState({ temp });
           this.setState({ humidity });
           this.setState({ condition });
