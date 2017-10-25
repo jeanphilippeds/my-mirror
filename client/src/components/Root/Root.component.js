@@ -6,6 +6,7 @@ import fr from 'react-intl/locale-data/fr';
 import frMessages from '../../translations/fr.json';
 import { flattenMessages } from '../../utils/i18n/intl';
 import map from './map.png';
+import bike from './bike.png';
 import './style.css';
 
 const locales = {
@@ -58,6 +59,12 @@ export default class Root extends Component {
       <IntlProvider locale="fr" messages={locales.fr} >
         <div className="App">
           <h2 className="App-title">Hello Pluton.</h2>
+          <div className="App-gradient">
+            <img src={bike} className="App-bike-1"/>
+            <img src={bike} className="App-bike-2"/>
+            <img src={bike} className="App-bike-3"/>
+            <img src={map} className="App-logo"/>
+          </div>
           <div>
             <p>
               Vélos dispos [Lamarck]: {this.state.lamarck}
@@ -78,7 +85,6 @@ export default class Root extends Component {
               Condition: {this.state.condition}
             </p>
           </div>
-          <img src={map} className="App-logo" alt="logo" />
         </div>
       </IntlProvider>
     );
