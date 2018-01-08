@@ -17,9 +17,23 @@
   width: 578px;
 }
 
+.App-text {
+  font-size: 20px;
+}
+
+.App-metro-text {
+  font-size: 20px;
+  display:inline-block;
+}
+
+.App-conclusion {
+  font-size: 20px;
+  margin-top: 50px;
+}
+
 .App-gradient {
   width: 578px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .App-gradient::before {
@@ -60,4 +74,11 @@
   position: relative;
   top:750px;
   left:90px;
+}
+
+.App-metro-icon {
+  width: 40px;
+  display:inline-block;
+  margin-right: 5px;
+  vertical-align: -70%;
 }
