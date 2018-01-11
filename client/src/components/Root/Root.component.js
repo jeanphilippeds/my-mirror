@@ -17,7 +17,7 @@ export default class Root extends Component {
       .then(res => {
         const temp = JSON.stringify(res.data.current.temp_c);
         const humidity = JSON.stringify(res.data.current.humidity);
-        const condition = JSON.stringify(res.data.current.condition.text);
+        const condition = JSON.stringify(res.data.current.condition.text).replace(/"/g, "").toLowerCase();
         const tmin = JSON.stringify(Math.round(res.data.forecast.forecastday[0].day.mintemp_c));
         const tmax = JSON.stringify(Math.round(res.data.forecast.forecastday[0].day.maxtemp_c));
         this.setState({ temp });
@@ -42,22 +42,22 @@ export default class Root extends Component {
       <div className="App">
         <h2 className="App-title">Hello there.</h2>
         <p className="App-text">
-          Il fait actuellement {this.state.temp}°C.
+          Current outside temperature is {this.state.temp}°C.
         </p>
         <p className="App-text">
-          L'humidité ambiante est de {this.state.humidity}%.
+          Weather is {this.state.condition} with {this.state.humidity}% of humidity.
         </p>
         <p className="App-text">
-          Aujourd'hui, les températures s'élèveront de {this.state.tmin}°C à {this.state.tmax}°C.
+          Today, local temperature may range from {this.state.tmin}°C to {this.state.tmax}°C.
         </p>
         <div>
           <img src={metro} className="App-metro-icon"/>
           <p className="App-metro-text">
-            Direction Chatillon-Montrouge: {this.state.nextSubway}, {this.state.secondSubway}
+            Towards Chatillon-Montrouge: {this.state.nextSubway}, {this.state.secondSubway}
           </p>
         </div>
         <p className="App-conclusion">
-          Bonne journée :)
+          Have a nice day :)
         </p>
         <div className="App-gradient">
           <img src={bike} className="App-bike-1"/>
