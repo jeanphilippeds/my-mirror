@@ -1,10 +1,12 @@
+html{overflow: hidden;}
+
+
 .App {
   background-color: #000000;
   color: white;
   height: 1366px;
   padding: 95px;
   width: 768px;
-  overflow: hidden;
 }
 
 .App-title {
